@@ -6,6 +6,7 @@
 ## Descrição
 
 Descreva brevemente o problema abordado, o objetivo do projeto e suas principais funcionalidades.
+Descobrir qual a altura mínima de lastro (h) que deve existir sob os dormentes para que a pressão que chega na plataforma não ultrapasse a pressão que o solo suporta com segurança. Com h definido, calcula-se quanto material de lastro será necessário no trecho (cubagem).
 
 ## Instalação
 
