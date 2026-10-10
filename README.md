@@ -5,7 +5,6 @@
 
 ## Descrição
 
-Descreva brevemente o problema abordado, o objetivo do projeto e suas principais funcionalidades.
 Descobrir qual a altura mínima de lastro (h) que deve existir sob os dormentes para que a pressão que chega na plataforma não ultrapasse a pressão que o solo suporta com segurança. Com h definido, calcula-se quanto material de lastro será necessário no trecho (cubagem).
 
 ## Instalação
@@ -62,9 +61,8 @@ Descreva informações relevantes para desenvolver, modificar ou contribuir com 
 
 **Alunos**
 
-* Bruna Soldera Terres (semestre)
-* Nome do aluno (semestre)
-* Nome do aluno (semestre)
+* Bruna Soldera Terres (2026/2)
+* Tainá Yumi Isse Sato (2026/2)
 
 **Professores orientadores**
 
@@ -72,6 +70,8 @@ Descreva informações relevantes para desenvolver, modificar ou contribuir com 
 * Felipe Schaedler de Almeida
 
 ## Referências
+
+Slides de aula da disciplina ENG09030 - Infra Fer-Hidro-Aéro-Dutoviária do professor Fernando Dutra Michel
 
 Liste as normas, livros, artigos, documentação, códigos ou outras fontes utilizadas no desenvolvimento do projeto.
 
