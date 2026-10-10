@@ -62,7 +62,7 @@ Descreva informações relevantes para desenvolver, modificar ou contribuir com 
 
 **Alunos**
 
-* Nome do aluno (semestre)
+* Bruna Soldera Terres (semestre)
 * Nome do aluno (semestre)
 * Nome do aluno (semestre)
 
