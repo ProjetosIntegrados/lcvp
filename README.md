@@ -4,6 +4,9 @@
 > Este projeto foi desenvolvido por estudantes no contexto de uma disciplina de graduação e possui finalidade exclusivamente educacional. Os resultados não foram necessariamente validados para uso profissional e devem ser utilizados com cautela e verificados independentemente.
 
 ## Descrição
+Em uma ferrovia, o peso do trem passa pelas rodas, pelo trilho e pelo dormente e  chega ao solo por uma camada de peddra britada chamada LASTRO. Se essa camada for fina demais, o soslo cede e a linha se deforma. Se for grossa demais, a obra fica mais cara.
+
+Esse projeto, desenvolvido para a disciplina de Projetos Integrados III (ENG01066), calcula a __espessura mínima da camada de lastro__ e a __quantidade de pedra necessária__ para um trecho de ferrovia. O método utilizado é o da aula sobre superestrutura ferroviária: sublastro e lastro, com a fórmula de Talbot administrada pelo professor Fernando Dutra Michel na disciplina Infra Fer-Hidro-Aéro-Dutoviária (ENG09030).
 
 Descobrir qual a altura mínima de lastro (h) que deve existir sob os dormentes para que a pressão que chega na plataforma não ultrapasse a pressão que o solo suporta com segurança. Com h definido, calcula-se quanto material de lastro será necessário no trecho (cubagem).
 
