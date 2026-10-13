@@ -11,19 +11,6 @@ Esse projeto, desenvolvido para a disciplina de Projetos Integrados III (ENG0106
 **Principais Funcionalidades**
 Descobrir qual a altura mínima de lastro (h) que deve existir sob os dormentes para que a pressão que chega na plataforma não ultrapasse a pressão que o solo suporta com segurança. Com h definido, calcula-se quanto material de lastro será necessário no trecho (cubagem).
 
-COMO O PROGRAMA FUNCIONA (visão geral)
---------------------------------------------------------------------------------
- 1. Pergunta os dados ao usuário
- 2. Calcula pesos, pressões e a espessura h
- 3. Calcula o tamanho da seção e a quantidade de pedra necessária
- 4. Mostra o relatório em tabelas
- 
- Unidades usadas: metros (m) para medidas, kgf para pesos, kgf/cm² para pressões, km/h para velocidade.
-
-O programa responde a duas perguntas:
-  1) Que espessura (h) a camada de pedra precisa ter para que o solo aguente?
-  2) Quantos metros cúbicos de pedra devem ser comprados para o trecho todo?
-
 ## Instalação
 
 Descrição dos requisitos e os procedimentos necessários para instalar o projeto.
@@ -39,6 +26,8 @@ pip install tabulate # É uma biblioteca opcional que desenha tabelas bonitas no
 ````
 
 ## Uso
+segue os 8 passos da aula (P, Pg, kv, Pv, Pm, Pr, Pap, h). A altura usa Talbot
+
 
 Explique como utilizar o projeto e apresente exemplos mínimos de uso.
 
@@ -65,10 +54,15 @@ poetry run pytest
 ```text
 .
 ├── src/
-│   └── nome_do_projeto/
+│   └── lastro_ferroviario/
+│       ├── __init__.py
+│       ├── modelos.py         # dataclasses de entrada
+│       ├── superestrutura.py  # cargas, pressões e altura h
+│       ├── secao.py           # área da seção e cubagem
+│       ├── interface.py       # entrada de dados e relatório
+│       └── desenho.py         # secao_tipo_plot.py
 ├── tests/
 ├── exemplos/
-├── docs/
 ├── README.md
 ├── LICENSE
 └── pyproject.toml
@@ -77,6 +71,25 @@ poetry run pytest
 ## Desenvolvimento
 
 Descreva informações relevantes para desenvolver, modificar ou contribuir com o projeto.
+
+COMO O PROGRAMA FUNCIONA (visão geral)
+--------------------------------------------------------------------------------
+ 1. Pergunta os dados ao usuário
+ 2. Calcula pesos, pressões e a espessura h
+ 3. Calcula o tamanho da seção e a quantidade de pedra necessária
+ 4. Mostra o relatório em tabelas
+ 
+**Unidades de medidas**
+* comprimento em metros (m);
+* cargas em kgf para pesos;
+* pressões em kgf/cm²;
+* velocidade em km/h.
+
+O programa responde a duas perguntas:
+  1) Que espessura (h) a camada de pedra precisa ter para que o solo aguente?
+  2) Quantos metros cúbicos de pedra devem ser comprados para o trecho todo?
+
+
 
 ## Autores
 
@@ -93,8 +106,6 @@ Descreva informações relevantes para desenvolver, modificar ou contribuir com 
 ## Referências
 
 Slides de aula da disciplina ENG09030 - Infra Fer-Hidro-Aéro-Dutoviária do professor Fernando Dutra Michel
-
-Liste as normas, livros, artigos, documentação, códigos ou outras fontes utilizadas no desenvolvimento do projeto.
 
 ## Licença
 
