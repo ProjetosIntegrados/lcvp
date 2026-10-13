@@ -1,4 +1,4 @@
-# Nome do projeto
+# Ferramenta Computacional para Dimensionamento de Lastro e Cubagem de Via Permanente (lcvp)
 
 > [!WARNING]
 > Este projeto foi desenvolvido por estudantes no contexto de uma disciplina de graduação e possui finalidade exclusivamente educacional. Os resultados não foram necessariamente validados para uso profissional e devem ser utilizados com cautela e verificados independentemente.
