@@ -13,7 +13,7 @@ Descobrir qual a altura mínima de lastro (h) que deve existir sob os dormentes 
 
 ## Instalação
 
-Descrição dos requisitos e os procedimentos necessários para instalar o projeto.
+
 
 Python 3.7 ou superior
 matplotlib: gera o desenho da seção tipo
