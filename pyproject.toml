@@ -1,14 +1,14 @@
 [tool.poetry]
-name = "Icvp"
+name = "Lcvp"
 version = "0.1.0"
 description = ""
-authors = ["Nome do Autor <email@example.com>"]
+authors = ["Bruna Soldera Terres <jcmterres@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 packages = [{ include = "Icvp", from = "src" }]
 
 [tool.poetry.dependencies]
-python = ">=3.11,<3.14"
+python = ">=3.11,<=3.14"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=8,<9"
