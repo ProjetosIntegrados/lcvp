@@ -2,7 +2,7 @@
 name = "Lcvp"
 version = "0.1.0"
 description = ""
-authors = ["Bruna Soldera Terres <jcmterres@gmail.com>"
+authors = ["Bruna Soldera Terres <jcmterres@gmail.com>",
             "Tainá Yumi Isse Sato <tainayumi.8@gmail.com>"]
 license = "MIT"
 readme = "README.md"
