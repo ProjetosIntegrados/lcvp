@@ -1,9 +1,8 @@
 [tool.poetry]
 name = "Icvp"
 version = "0.1.0"
-description = "Ferramenta Computacional para Dimensionamento de Lastro e Cubagem de Via Permanente"
-authors = ["Bruna Soldera Terres <jcmterres@gmail.com>", 
-           "Tainá Yumi Isse Sato <tainayumi.8@gmail.com>"]
+description = ""
+authors = ["Nome do Autor <email@example.com>"]
 license = "MIT"
 readme = "README.md"
 packages = [{ include = "Icvp", from = "src" }]
