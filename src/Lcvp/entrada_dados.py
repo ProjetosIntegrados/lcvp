@@ -46,16 +46,16 @@ class ParametrosGeometricos:                                        # Geometria 
 
 def validar_entrada(mensagem: str, tipo: type = float):
     """Lê um valor do teclado, aceitando vírgula decimal e exigindo valor > 0."""
-    while True:
-        try:
-            entrada = input(mensagem).replace(',', '.')
-            valor = tipo(entrada)
-            if valor <= 0:
-                print("Erro: O valor deve ser maior que zero.")
-                continue
-            return valor
-        except ValueError:
-            print("Erro: Entrada inválida. Insira apenas números.")
+    while True:                                                     # Cria um laço infinito para solicitar o valor repetidamente até que seja fornecida uma entrada válida
+        try:                                                        # Inicia o bloco de tratamento de exceções para capturar falhas de conversão de dados
+            entrada = input(mensagem).replace(',', '.')             # Lê o texto digitado pelo usuário e substitui eventuais vírgulas por pontos decimais
+            valor = tipo(entrada)                                   # Converte a string limpa para o tipo especificado (float ou int)
+            if valor <= 0:                                          # Verifica se o valor informado é menor ou igual a zero
+                print("Erro: O valor deve ser maior que zero.")     # Exibe uma mensagem de erro indicando que a entrada deve ser estritamente positiva
+                continue                                            # Reinicia o laço while solicitando a entrada do usuário novamente
+            return valor                                            # Retorna o valor numérico validado e encerra o laço
+        except ValueError:                                          # Captura falhas de conversão caso o usuário forneça textos inválidos ou símbolos não numéricos
+            print("Erro: Entrada inválida. Insira apenas números.") # Imprime mensagem alertando que a entrada não é numérica
 
 
 def coletar_dados():
