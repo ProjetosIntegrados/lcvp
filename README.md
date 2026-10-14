@@ -30,13 +30,12 @@ segue os 8 passos da aula (P, Pg, kv, Pv, Pm, Pr, Pap, h). A altura usa Talbot
 
 PASSO 1 – Quanto peso cada roda carrega?
 
+$P = \frac{\text{peso total}}{\text{num\_rodas}}$
+
 P = peso total do vagão / número de rodas       [kgf]
  
-        Supõe-se que o peso se divide igualmente entre todas as rodas.
-        Um vagão típico tem 2 truques x 2 eixos x 2 rodas = 8 rodas.
- 
         Exemplo: vagão de 119.000 kg com 8 rodas
-            P = 119000 / 8 = 14.875 kgf por roda."""
+            P = 119000 / 8 = 14.875 kgf por roda.
 
 
 ```python
