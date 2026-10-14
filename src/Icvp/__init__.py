@@ -13,34 +13,40 @@ except ImportError:                   # (Caso dê erro de importação): Se o pc
 # 1. ARQUITETURA DOS DADOS DO PROGRAMA: criação de fichas de cadastro p/ agrupar os dados de entrada (q/ usuário digita) em 3 categorias (Trem, Solo e Medidas da Linha), em vez de trabalhar com 15 variáveis
 # ==================================================================================================================================================================================================================
 
-@dataclass                                # cria uma classe p/ armazenar dados
-class ParametrosOperacionais:        
-    """Ficha 1: ParametrosOperacionais – O TREM e como ele opera."""   #Guarda as variáveis ligadas ao veículo e ao tráfego ferroviário.
-                                # Define o atributo para: 
-    peso_total: float                # o peso total do vagão em kgf (tipo decimal).
-    num_rodas: int                   # o número total de rodas do vagão (tipo inteiro).
-    velocidade: float                # a velocidade operacional em km/h (tipo decimal).
-    dist_eixos: float                # a distância entre eixos consecutivos em metros (tipo decimal).
-    espacamento_dormentes: float     # o espaçamento entre dormentes em metros (tipo decimal).
+@dataclass                                                          # cria uma classe p/ armazenar dados
+class ParametrosOperacionais:                                       # Guarda as variáveis ligadas ao veículo e ao tráfego ferroviário
+    """Ficha 1: Parametros Operacionais –> O TREM e como opera."""   
+                                                                      # Define o atributo para: 
+    peso_total: float                                               # o peso total do vagão em kgf (tipo de dado esperado = decimal/real)
+    num_rodas: int                                                  # o nº total de rodas do vagão -geralmente 8 em vagões de $ eixos- (tipo inteiro) 
+    velocidade: float                                               # a velocidade operacional em km/h (tipo decimal)
+    dist_eixos: float                                               # a distância entre eixos consecutivos em metros (tipo decimal)
+    espacamento_dormentes: float                                    # o espaçamento entre dormentes em metros (tipo decimal)
 
 
 @dataclass
-class ParametrosGeotecnicos:
-    """Ficha 2 – O SOLO sobre o qual tudo se apoia."""
-    cbr: float                    # Define o atributo para a capacidade de suporte CBR do solo em % (tipo decimal).
-    fator_seguranca: float        # Define o atributo para o fator de segurança Ns adotado (tipo decimal).
+class ParametrosGeotecnicos:                                        # Agrupa as características do terreno (plataforma/sublastro)
+    
+    """Ficha 2: Parametros Geotecnicos – O SOLO de fundação.""" 
+                                                                      # Define o atributo para: 
+    cbr: float                                                      # a capacidade de suporte CBR do solo em % (tipo decimal)
+    fator_seguranca: float                                          # o fator de segurança Ns adotado (tipo decimal)
 
 
 @dataclass
-class ParametrosGeometricos:
-    """Ficha 3 – MEDIDAS da linha (dormente, ombreira, talude, trecho)."""
-    comp_dormente: float          # Define o atributo para o comprimento total do dormente em metros (tipo decimal).
-    larg_dormente: float          # Define o atributo para a largura da face superior/inferior do dormente em metros (tipo decimal).
-    alt_dormente: float           # Define o atributo para a altura/espessura do dormente em metros (tipo decimal).
-    comp_soca: float              # Define o atributo para a extensão total da área socada sob o dormente em metros (tipo decimal).
-    larg_ombro: float             # Define o atributo para a largura da ombreira do lastro em metros (tipo decimal).
-    inclinacao_talude: float      # Define o atributo para a proporção horizontal do talude X do lastro 1:X (tipo decimal).
-    extensao_trecho_m: float      # Define o atributo para a extensão total da via em metros (tipo decimal).
-    extensao_trecho_km: float     # Define o atributo para a extensão total da via em quilômetros (tipo decimal).
-    fator_majoracao_perc: float   # Define o atributo para o percentual de perdas/majoração do volume de lastro em % (tipo decimal).
-    qtd_dormentes_km: float       # Define o atributo para a quantidade de dormentes alocados por quilômetro (tipo decimal).
+class ParametrosGeometricos:                                        # Geometria e Dimensões físicas da via permanente para o cálculo de tensões e volume de material
+    
+    """Ficha 3: Parametros Geometricos – MEDIDAS da linha (talude, trecho).""" 
+                                                                      # Define o atributo para:
+    comp_dormente: float                                            # o comprimento total do dormente em metros (tipo decimal)
+    larg_dormente: float                                            # a largura da face superior/inferior do dormente em metros (tipo decimal)
+    alt_dormente: float                                             # a altura/espessura do dormente em metros (tipo decimal)
+    
+    comp_soca: float                                                # a extensão total da área compactada sob o dormente em metros (tipo decimal).
+    larg_ombro: float                                               # a largura da ombreira do lastro em metros (tipo decimal).
+    inclinacao_talude: float                                        # a inclinação = proporção horizontal do talude X do lastro 1:X (tipo decimal).
+    
+    extensao_trecho_m: float                                        # a extensão total da via em metros (tipo decimal).
+    extensao_trecho_km: float                                       # a extensão total da via em quilômetros (tipo decimal).
+    fator_majoracao_perc: float                                     # o percentual de perdas/majoração do volume de lastro em % (tipo decimal).
+    qtd_dormentes_km: float                                         # a quantidade de dormentes alocados por quilômetro (tipo decimal).

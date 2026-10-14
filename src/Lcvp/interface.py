@@ -2,12 +2,11 @@
 PARTE 4 - MÓDULO DE INTERFACE
 Apresentação dos resultados (relatório no terminal).
 """
-from typing import Dict, Any
-
-try:
-    from tabulate import tabulate
-except ImportError:
-    tabulate = None
+# "try/except" significa: "tente usar; se não estiver instalada, siga sem ela"
+try:                                  # (Tente): programa tenta importar o tabulate. Se o pc tiver essa biblioteca instalada, ela será carregada normalmente
+    from tabulate import tabulate     # Importa a função Tabulate: é uma biblioteca externa (ñ vem instalada por padrão no Python) usada para desenhar tabelas bonitas no terminal/console
+except ImportError:                   # (Caso dê erro de importação): Se o pc ñ tiver o tabulate instalado, em vez de o programa quebrar e fechar com uma mensagem de erro
+    tabulate = None                   # Define tabulate como None se a biblioteca não estiver instalada
 
 
 def gerar_relatorio_terminal(resultados: Dict[str, Any]):
