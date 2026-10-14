@@ -63,11 +63,11 @@ poetry run pytest
 ├── src/
 │   └── lastro_ferroviario/
 │       ├── __init__.py
-│       ├── modelos.py         # dataclasses de entrada
-│       ├── superestrutura.py  # cargas, pressões e altura h
-│       ├── secao.py           # área da seção e cubagem
-│       ├── interface.py       # entrada de dados e relatório
-│       └── desenho.py         # secao_tipo_plot.py
+│       ├── calculos.py        
+│       ├── entrada_dados.py 
+│       ├── interface.py           
+│       ├── main.py     
+│       └── modelagem_geometrica.py         
 ├── tests/
 ├── exemplos/
 ├── README.md
