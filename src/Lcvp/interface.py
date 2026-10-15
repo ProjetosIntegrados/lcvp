@@ -49,4 +49,4 @@ def gerar_relatorio_terminal(resultados: Dict[str, Any]):
     else:                                                                                          # Caso a biblioteca tabulate não esteja instalada no ambiente de execução.
         for k, v in dados_operacionais + dados_estruturais + dados_cubagem:                        # Itera sequencialmente sobre todos os pares parâmetro-valor combinados nas listas.
                 print(f"{k}: {v}")                                                                 # Imprime as informações no formato simplificado "Parâmetro: Valor".
-            print(f"{k}: {v}")
+                print(f"{k}: {v}")
