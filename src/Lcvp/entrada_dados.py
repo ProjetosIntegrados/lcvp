@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 @dataclass                                                          # cria uma classe p/ armazenar dados
 class ParametrosOperacionais:                                       # Guarda as variáveis ligadas ao veículo e ao tráfego ferroviário
-    """Ficha 1: Parametros Operacionais –> O TREM e como opera."""   
+"""Ficha 1: Parametros Operacionais –> O TREM e como opera."""   
                                                                       # Define o atributo para: 
     peso_total: float                                               # o peso total do vagão em kgf (tipo de dado esperado = decimal/real)
     num_rodas: int                                                  # o nº total de rodas do vagão -geralmente 8 em vagões de $ eixos- (tipo inteiro) 
