@@ -7,20 +7,18 @@ from dataclasses import dataclass
 
 @dataclass                                                          # cria uma classe p/ armazenar dados
 class ParametrosOperacionais:                                       # Guarda as variáveis ligadas ao veículo e ao tráfego ferroviário
-  """Ficha 1: Parametros Operacionais –> O TREM e como opera."""   
-                                                                      # Define o atributo para: 
-    peso_total: float                                               # o peso total do vagão em kgf (tipo de dado esperado = decimal/real)
-    num_rodas: int                                                  # o nº total de rodas do vagão -geralmente 8 em vagões de $ eixos- (tipo inteiro) 
-    velocidade: float                                               # a velocidade operacional em km/h (tipo decimal)
-    dist_eixos: float                                               # a distância entre eixos consecutivos em metros (tipo decimal)
-    espacamento_dormentes: float                                    # o espaçamento entre dormentes em metros (tipo decimal)
+  """Ficha 1: Parametros Operacionais –> O TREM e como opera."""    # Define o atributo para: 
+  peso_total: float                                               # o peso total do vagão em kgf (tipo de dado esperado = decimal/real)
+  num_rodas: int                                                  # o nº total de rodas do vagão -geralmente 8 em vagões de $ eixos- (tipo inteiro) 
+  velocidade: float                                               # a velocidade operacional em km/h (tipo decimal)
+  dist_eixos: float                                               # a distância entre eixos consecutivos em metros (tipo decimal)
+  espacamento_dormentes: float                                    # o espaçamento entre dormentes em metros (tipo decimal)
 
 
 @dataclass
 class ParametrosGeotecnicos:                                        # Agrupa as características do terreno (plataforma/sublastro)
     
-    """Ficha 2: Parametros Geotecnicos – O SOLO de fundação.""" 
-                                                                      # Define o atributo para: 
+    """Ficha 2: Parametros Geotecnicos – O SOLO de fundação."""     # Define o atributo para: 
     cbr: float                                                      # a capacidade de suporte CBR do solo em % (tipo decimal)
     fator_seguranca: float                                          # o fator de segurança Ns adotado (tipo decimal)
 
@@ -63,32 +61,32 @@ def coletar_dados():
     print("=== CÁLCULO DE LASTRO - INSERÇÃO DE DADOS ===")                                 # Exibe o título principal de entrada de dados no console.
     
                                                                                                 # Solicita e valida: 
-    extensao_km = InterfaceIO.validar_entrada("Extensão do trecho (km) [ex: 350]: ")       # o comprimento do trecho ferroviário em quilômetros.
-    carga_vagao = InterfaceIO.validar_entrada("Carga total por vagão (kg) [ex: 90000]: ")  # a o peso bruto total do vagão em kg.
-    velocidade = InterfaceIO.validar_entrada("Velocidade operacional (km/h) [ex: 70]: ")   #  velocidade máxima de operação do trem em km/h.
-    num_eixos = InterfaceIO.validar_entrada("Número de eixos por veículo [ex: 4]: ", int)  # o número de eixos do vagão como um número inteiro.
-    dist_eixos = InterfaceIO.validar_entrada("Distância entre eixos (m) [ex: 1.574]: ")    # a distância longitudinal entre eixos contíguos em metros.
-    cbr = InterfaceIO.validar_entrada("CBR do sublastro (%) [ex: 30]: ")                   # o valor porcentual do Índice de Suporte Califórnia (CBR).
+    extensao_km = validar_entrada("Extensão do trecho (km) [ex: 350]: ")       # o comprimento do trecho ferroviário em quilômetros.
+    carga_vagao = validar_entrada("Carga total por vagão (kg) [ex: 90000]: ")  # a o peso bruto total do vagão em kg.
+    velocidade = validar_entrada("Velocidade operacional (km/h) [ex: 70]: ")   #  velocidade máxima de operação do trem em km/h.
+    num_eixos = validar_entrada("Número de eixos por veículo [ex: 4]: ", int)  # o número de eixos do vagão como um número inteiro.
+    dist_eixos = validar_entrada("Distância entre eixos (m) [ex: 1.574]: ")    # a distância longitudinal entre eixos contíguos em metros.
+    cbr = validar_entrada("CBR do sublastro (%) [ex: 30]: ")                   # o valor porcentual do Índice de Suporte Califórnia (CBR).
 
 
     while True:                                                                                           # Inicia o laço de repetição específico para validação do Fator de Segurança dentro da faixa normativa.
-        fator_seguranca = InterfaceIO.validar_entrada("Coeficiente de segurança Ns (5 a 6) [ex: 5.5]: ")  # Solicita e lê o valor numérico do coeficiente de segurança.
+        fator_seguranca = validar_entrada("Coeficiente de segurança Ns (5 a 6) [ex: 5.5]: ")  # Solicita e lê o valor numérico do coeficiente de segurança.
         if 5.0 <= fator_seguranca <= 6.0:                                                                 # Checa se o valor digitado pertence ao intervalo fechado [5.0, 6.0].
             break                                                                                         # Encerra o laço de validação do fator de segurança se a entrada estiver correta.
         print("Erro: O coeficiente de segurança Ns deve estar entre 5 e 6.")                              # Exibe aviso informando o intervalo permitido para o fator de segurança.
 
-    soca_lado = InterfaceIO.validar_entrada("Soca para cada lado do eixo dos trilhos (cm) [ex: 30]: ")  # Solicita e valida o comprimento da faixa socada para cada lado do trilho em centímetros.
-    ombreira_cm = InterfaceIO.validar_entrada("Ombreiras para cada lado (cm) [ex: 35]: ")               # Solicita e valida a largura da ombreira do lastro em centímetros.
-    espacamento_cm = InterfaceIO.validar_entrada("Espaçamento entre dormentes (cm) [ex: 55]: ")         # Solicita e valida o espaçamento centro-a-centro entre dormentes adjacentes em centímetros.
-    qtd_dormentes_km = InterfaceIO.validar_entrada("Qtd. Dormentes por km [ex: 1820]: ")                # Solicita e valida a taxa de dormentes aplicados por quilômetro de via.
+    soca_lado = validar_entrada("Soca para cada lado do eixo dos trilhos (cm) [ex: 30]: ")  # Solicita e valida o comprimento da faixa socada para cada lado do trilho em centímetros.
+    ombreira_cm = validar_entrada("Ombreiras para cada lado (cm) [ex: 35]: ")               # Solicita e valida a largura da ombreira do lastro em centímetros.
+    espacamento_cm = validar_entrada("Espaçamento entre dormentes (cm) [ex: 55]: ")         # Solicita e valida o espaçamento centro-a-centro entre dormentes adjacentes em centímetros.
+    qtd_dormentes_km = validar_entrada("Qtd. Dormentes por km [ex: 1820]: ")                # Solicita e valida a taxa de dormentes aplicados por quilômetro de via.
 
     print("\n-- Dimensões do Dormente --")                                    # Exibe o subcabeçalho para o bloco de parâmetros do dormente.
-    comp_dormente = InterfaceIO.validar_entrada("Comprimento (m) [ex: 2]: ")  # Solicita e valida a dimensão do comprimento do dormente em metros.
-    larg_dormente = InterfaceIO.validar_entrada("Largura (m) [ex: 0.22]: ")   # Solicita e valida a dimensão da largura do dormente em metros.
-    alt_dormente = InterfaceIO.validar_entrada("Altura (m) [ex: 0.16]: ")      # Solicita e valida a dimensão da altura/espessura do dormente em metros.
+    comp_dormente = validar_entrada("Comprimento (m) [ex: 2]: ")  # Solicita e valida a dimensão do comprimento do dormente em metros.
+    larg_dormente = validar_entrada("Largura (m) [ex: 0.22]: ")   # Solicita e valida a dimensão da largura do dormente em metros.
+    alt_dormente = validar_entrada("Altura (m) [ex: 0.16]: ")      # Solicita e valida a dimensão da altura/espessura do dormente em metros.
 
-    inclinacao_talude = InterfaceIO.validar_entrada("\nInclinação do talude (X para 1:X) [ex: 1.5]: ")            # Solicita e valida o valor da proporção horizontal X para a inclinação do talude 1:X.
-    fator_majoracao_perc = InterfaceIO.validar_entrada("Coeficiente de majoração sobre o lastro (%) [ex: 10]: ")  # Solicita e valida o percentual extra de majoração do volume do lastro em %.
+    inclinacao_talude = validar_entrada("\nInclinação do talude (X para 1:X) [ex: 1.5]: ")            # Solicita e valida o valor da proporção horizontal X para a inclinação do talude 1:X.
+    fator_majoracao_perc = validar_entrada("Coeficiente de majoração sobre o lastro (%) [ex: 10]: ")  # Solicita e valida o percentual extra de majoração do volume do lastro em %.
 
                                                # Conversões de unidade
     num_rodas = num_eixos * 2                  # Multiplica a quantidade de eixos por 2 para encontrar o total de rodas do veículo.
