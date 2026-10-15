@@ -21,8 +21,10 @@ matplotlib: gera o desenho da seção tipo
 Por exemplo:
 
 ```bash
+poetry install
 pip install matplotlib
 pip install tabulate # É uma biblioteca opcional que desenha tabelas bonitas no terminal
+
 ````
 
 ## Uso
