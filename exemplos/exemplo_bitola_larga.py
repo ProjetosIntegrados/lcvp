@@ -99,8 +99,6 @@ def executar_exemplo():
 
     # 6. Relatório no terminal
     gerar_relatorio_terminal(resultados)
-    print(f"\n[PROJETO] Altura adotada (arredondamento construtivo): {h_adotado * 100:.1f} cm ({h_adotado:.2f} m)")
-    print("[PROJETO] Altura do dormente considerada no lastro: 12 cm enterrados (5 cm descobertos)")
 
     # 7. Representação gráfica da seção tipo (caso plotar_secao_transversal esteja no interface.py)
     if plotar_secao_transversal is not None:
