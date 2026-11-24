@@ -106,3 +106,50 @@ def test_espessura_lastro_com_pap_zero(dados_exemplo_aula):
     assert sup.espessura_minima_lastro_h() == 0.0
 
 # ---------------- Testes da Parte 3: Modelagem Geométrica ----------------
+
+def test_modelagem_geometrica_e_cubagem(dados_exemplo_aula):
+    op, geo, geom = dados_exemplo_aula
+    sup = Superestrutura(op, geo, geom)
+    h = sup.espessura_minima_lastro_h()
+    sec = SecaoTransversal(geom, op, altura_lastro=h)
+
+    assert sec.area_secao_tipo() == pytest.approx(1.24, abs=1e-2)
+    assert sec.volume_secao_tipo() == pytest.approx(434_000.0, rel=1e-4)
+    assert sec.volume_dormente_vd() == pytest.approx(0.07, abs=1e-2)
+    assert sec.qtd_dormentes_por_km() == 1820.0
+    assert sec.volume_total_dormentes_vds() == pytest.approx(44_590.0, rel=1e-4)
+    assert sec.volume_total_lastro_vl() == pytest.approx(389_410.0, rel=1e-4)
+    assert sec.volume_lastro_majorado() == pytest.approx(428_351.0, rel=1e-4)
+
+
+# ---------------- Teste da Parte 4: Interface ----------------
+
+def test_gerar_relatorio_terminal(dados_exemplo_aula, capsys):
+    op, geo, geom = dados_exemplo_aula
+    sup = Superestrutura(op, geo, geom)
+    h = sup.espessura_minima_lastro_h()
+    sec = SecaoTransversal(geom, op, altura_lastro=h)
+
+    resultados = {
+        'P': sup.carga_estatica_roda_P(),
+        'Pg': sup.carga_distribuida_dormentes_Pg(),
+        'kv': sup.coeficiente_dinamico_kv(),
+        'Pv': sup.carga_de_calculo_Pv(),
+        's': geom.comp_soca,
+        'Pm': sup.pressao_face_inferior_dormente_Pm(),
+        'Pr': sup.pressao_ruptura_solo_Pr(),
+        'Pap': sup.pressao_admissivel_plataforma_Pap(),
+        'h': h,
+        'area_secao': sec.area_secao_tipo(),
+        'vol_secao': sec.volume_secao_tipo(),
+        'Vd': sec.volume_dormente_vd(),
+        'qtd_dorm_km': sec.qtd_dormentes_por_km(),
+        'Vds': sec.volume_total_dormentes_vds(),
+        'VL': sec.volume_total_lastro_vl(),
+        'VL_maj': sec.volume_lastro_majorado(),
+    }
+
+    gerar_relatorio_terminal(resultados)
+    saida = capsys.readouterr().out
+    assert "RELATÓRIO EXECUTIVO - VIA PERMANENTE" in saida
+    assert "428351.00 m³" in saida
