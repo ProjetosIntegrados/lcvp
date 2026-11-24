@@ -72,7 +72,8 @@ def executar_exemplo():
 
     # 4. Dimensionamento Estrutural (8 passos - Talbot)
     sup = Superestrutura(op, geo, geom)
-    h = sup.espessura_minima_lastro_h()
+    h_exato = sup.espessura_minima_lastro_h()
+    h_adotado = math.ceil(h_exato * 100) / 100
 
     # 5. Modelagem Geométrica e Cubagem
     sec = SecaoTransversal(geom, op, altura_lastro=h)
@@ -98,17 +99,20 @@ def executar_exemplo():
 
     # 6. Relatório no terminal
     gerar_relatorio_terminal(resultados)
+    print(f"\n[PROJETO] Altura adotada (arredondamento construtivo): {h_adotado * 100:.1f} cm ({h_adotado:.2f} m)")
+    print("[PROJETO] Altura do dormente considerada no lastro: 12 cm enterrados (5 cm descobertos)")
 
     # 7. Representação gráfica da seção tipo (caso plotar_secao_transversal esteja no interface.py)
     if plotar_secao_transversal is not None:
         plotar_secao_transversal(
-            resultados,
+            {**resultados, "h": h_adotado},
             comp_dormente=geom.comp_dormente,
             larg_ombro=geom.larg_ombro,
             alt_dormente=geom.alt_dormente,
             inclinacao_talude=geom.inclinacao_talude,
             cbr=geo.cbr,
         )
+
 
 if __name__ == "__main__":
     executar_exemplo()
