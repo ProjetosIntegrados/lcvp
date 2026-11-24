@@ -1,8 +1,5 @@
-"""
-Testes automatizados para o pacote Lcvp (Dimensionamento de Lastro e Cubagem).
-Execute com:
-    poetry run pytest
-"""
+# TESTE - para Dimensionamento de Lastro e Cubagem
+
 import builtins
 import sys
 import typing
@@ -59,6 +56,53 @@ def dados_exemplo_aula():
     )
     return op, geo, geom
 
-
 # ---------------- Testes da Parte 2: Cálculos (Superestrutura) ----------------
 
+def test_passo1_carga_estatica_roda_P(dados_exemplo_aula):
+    op, geo, geom = dados_exemplo_aula
+    sup = Superestrutura(op, geo, geom)
+    # 90.000 / 8 = 11.250 kgf
+    assert sup.carga_estatica_roda_P() == pytest.approx(11250.0, rel=1e-4)
+
+def test_passo2_carga_distribuida_dormentes_Pg(dados_exemplo_aula):
+    op, geo, geom = dados_exemplo_aula
+    sup = Superestrutura(op, geo, geom)
+    # 11.250 * (0.55 / 1.574) = 3931.0673 kgf
+    assert sup.carga_distribuida_dormentes_Pg() == pytest.approx(3931.0673, rel=1e-4)
+
+def test_passo3_coeficiente_dinamico_kv_minimo_normativo(dados_exemplo_aula):
+    op, geo, geom = dados_exemplo_aula
+    sup = Superestrutura(op, geo, geom)
+    # Para v = 70 km/h, kv_calc = 1.2205 (< 1.4), portanto deve adotar 1.4
+    assert sup.coeficiente_dinamico_kv() == pytest.approx(1.4, rel=1e-4)
+    assert sup.aviso_kv_impresso is True
+
+def test_passo3_coeficiente_dinamico_kv_velocidade_alta(dados_exemplo_aula):
+    op, geo, geom = dados_exemplo_aula
+    op.velocidade = 100.0  # kv_calc = 1 + (4.5 * 10000 / 100000) = 1.45 (>= 1.4)
+    sup = Superestrutura(op, geo, geom)
+    assert sup.coeficiente_dinamico_kv() == pytest.approx(1.45, rel=1e-4)
+
+
+def test_passo4_a_7_cargas_e_pressoes(dados_exemplo_aula):
+    op, geo, geom = dados_exemplo_aula
+    sup = Superestrutura(op, geo, geom)
+    assert sup.carga_de_calculo_Pv() == pytest.approx(5503.4943, rel=1e-4)
+    assert sup.pressao_face_inferior_dormente_Pm() == pytest.approx(4.1693, rel=1e-4)
+    assert sup.pressao_ruptura_solo_Pr() == pytest.approx(21.0, rel=1e-4)
+    assert sup.pressao_admissivel_plataforma_Pap() == pytest.approx(3.8182, rel=1e-4)
+
+def test_passo8_espessura_minima_lastro_h(dados_exemplo_aula):
+    op, geo, geom = dados_exemplo_aula
+    sup = Superestrutura(op, geo, geom)
+    # Sem arredondamento intermediário: 26,0404 cm (no caderno arredondado: 26,039 cm)
+    h_metros = sup.espessura_minima_lastro_h()
+    assert h_metros * 100 == pytest.approx(26.0404, abs=1e-3)
+
+def test_espessura_lastro_com_pap_zero(dados_exemplo_aula):
+    op, geo, geom = dados_exemplo_aula
+    geo.cbr = 0.0  # Força Pap = 0 para testar proteção contra divisão por zero
+    sup = Superestrutura(op, geo, geom)
+    assert sup.espessura_minima_lastro_h() == 0.0
+
+# ---------------- Testes da Parte 3: Modelagem Geométrica ----------------
