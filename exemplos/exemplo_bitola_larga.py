@@ -76,7 +76,7 @@ def executar_exemplo():
     h_adotado = math.ceil(h_exato * 100) / 100
 
     # 5. Modelagem Geométrica e Cubagem
-    sec = SecaoTransversal(geom, op, altura_lastro=h)
+    sec = SecaoTransversal(geom, op, altura_lastro=h_adotado)
 
     resultados = {
         "P": sup.carga_estatica_roda_P(),
@@ -87,7 +87,7 @@ def executar_exemplo():
         "Pm": sup.pressao_face_inferior_dormente_Pm(),
         "Pr": sup.pressao_ruptura_solo_Pr(),
         "Pap": sup.pressao_admissivel_plataforma_Pap(),
-        "h": h,
+        "h": h_exato,
         "area_secao": sec.area_secao_tipo(),
         "vol_secao": sec.volume_secao_tipo(),
         "Vd": sec.volume_dormente_vd(),
