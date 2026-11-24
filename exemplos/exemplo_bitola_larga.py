@@ -1,6 +1,7 @@
 # EXEMPLO 2 - Ferrovia de Bitola Larga, 200 km (escoamento de minério de ferro).
 
 import builtins
+import math
 import sys
 import typing
 from pathlib import Path
