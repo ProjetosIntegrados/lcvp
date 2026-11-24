@@ -111,6 +111,5 @@ def executar_exemplo():
             cbr=geo.cbr,
         )
 
-
 if __name__ == "__main__":
     executar_exemplo()
