@@ -151,18 +151,6 @@ class AppLcvp(tk.Tk):
             bg="#ffffff", fg="#111827", font=("Segoe UI", 13, "normal"), anchor="w"
         ).pack(fill="x")
 
-        tk.Label(
-            esq,
-            text="Projetos Integrados III (ENG01066) • UFRGS",
-            bg="#ffffff", fg="#6b7280", font=("Segoe UI", 9, "normal"), anchor="w"
-        ).pack(fill="x", pady=(2, 0))
-
-        tk.Label(
-            esq,
-            text="Bruna Soldera Terres & Tainá Yumi Isse Sato • Orientação: Prof. Felipe Pinto da Motta Quevedo & Prof. Felipe Schaedler de Almeida • ENG01066 / UFRGS",
-            bg="#ffffff", fg="#6b7280", font=("Segoe UI", 9, "normal"), anchor="w"
-        ).pack(fill="x", pady=(1, 0))
-
         dir_btns = tk.Frame(topo, bg="#ffffff")
         dir_btns.pack(side="right", padx=(12, 0))
 
