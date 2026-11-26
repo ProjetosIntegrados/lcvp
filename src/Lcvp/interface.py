@@ -11,10 +11,6 @@ import tkinter as tk
 from pathlib import Path
 from tkinter import ttk
 
-# Compatibilidade com interface.py em versões do Python < 3.14
-builtins.Dict = typing.Dict
-builtins.Any = typing.Any
-
 # Localiza automaticamente a pasta src/Lcvp/ (funciona rodando da raiz ou de dentro de src/Lcvp/)
 BASE_DIR = Path(__file__).resolve().parent
 CANDIDATOS_SRC = [BASE_DIR / "src", BASE_DIR.parent, BASE_DIR]
