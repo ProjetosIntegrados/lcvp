@@ -2,13 +2,6 @@
 PARTE 4 - MÓDULO DE INTERFACE
 Apresentação dos resultados (relatório no terminal).
 """
-"""
-Interface Gráfica (Tkinter) - Lcvp
-Conectada diretamente aos módulos em src/Lcvp/.
-
-Execute na raiz do projeto com:
-    poetry run python interface_grafica.py
-"""
 import math
 import sys
 import tkinter as tk
